@@ -1,13 +1,10 @@
 import express from 'express';
+import drinkController from '../controller/drink.controller';
 const router = express.Router();
 
-router.post("/", (req, res) => {
-    res.send("drink added");
-});
+router.post("/", drinkController.createDrink);
 
-router.get("/", (req, res) => {
-    res.send("get drinks");
-});
+router.get("/", drinkController.getDrink);
 
 router.put("/:id", (req, res) => {
     res.send("update drink");
