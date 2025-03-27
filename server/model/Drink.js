@@ -19,6 +19,8 @@ const drinkSchema = new mongoose.Schema({
         type: Number,
         required: true
     }
+},{
+    timestamps : true
 });
 
 const Drink = mongoose.model('Drink', drinkSchema);

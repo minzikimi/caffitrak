@@ -1,7 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
-import indexRouter from "./routes/index.js";  // Note the .js extension
+import indexRouter from "./routes/index.js";  
 
 const app = express();
 app.use(bodyParser.json());
@@ -15,6 +15,6 @@ mongoose.connect(mongoURI).then(() => {
     console.log("DB connection fail", err);
 });
 
-app.listen(5001, () => {
-    console.log("server on 5001");
+app.listen(5002, () => {
+    console.log("server on 5002");
 });

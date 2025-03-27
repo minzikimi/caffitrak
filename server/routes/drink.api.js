@@ -1,5 +1,6 @@
 import express from 'express';
-import drinkController from '../controller/drink.controller';
+
+import drinkController from '../controller/drink.controller.js';
 const router = express.Router();
 
 router.post("/", drinkController.createDrink);

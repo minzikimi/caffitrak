@@ -1,4 +1,4 @@
-import Drink from "../model/Drink";
+import Drink from "../model/Drink.js"
 
 const drinkController ={}
 
@@ -25,7 +25,7 @@ drinkController.createDrink=async(req,res)=>{
 
 drinkController.getDrink=async(req,res)=>{
     try{
-        const drinkList = await Drink.find({})//give me every data
+        const drinkList = await Drink.find({}).select("-__v")//give me all data!
         res.status(200).json({status:"ok", data:drinkList})
     }
     catch(err){
@@ -33,22 +33,30 @@ drinkController.getDrink=async(req,res)=>{
     }
 }
 
-// drinkController.updateDrink=async(req,res)=>{
-//     try{
-        
-//     }
-//     catch(err){
-//         res.status(400).json({status:"fail", error:err})
-//     }
-// }
+drinkController.updateDrink=async(req,res)=>{
+    try{
+        const drink = await Drink.findById(req.params.id);
+        if(!drink){
+            throw new Error("Cannot find the drink");
+        }
+        const fields = Object.keys(req.body);
+        fields.map((item)=> (drink[item]=req.body[item]));
+        await drink.save;
+        res.status(200).json({status:"ok", data:drink});
+    }
+    catch(err){
+        res.status(400).json({status:"fail", error:err})
+    }
+}
 
-// drinkController.deleteDrink=async(req,res)=>{
-//     try{
-//         const 
-//     }
-//     catch(err){
-//         res.status(400).json({status:"fail", error:err})
-//     }
-// }
+drinkController.deleteDrink=async(req,res)=>{
+    try{
+        const deleteItem = await Drink.findByIdAndDelete(req.params.id);
+        res.status(200).json({status:"ok", data:deleteItem})
+    }
+    catch(err){
+        res.status(400).json({status:"fail", error:err})
+    }
+}
 
 export default drinkController;
