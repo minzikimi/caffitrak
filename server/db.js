@@ -20,13 +20,21 @@ const caffeineDatabase = [
       ]
     },
     {
-        category: "Energy Drinks",
+        category: "Energy Drink",
         drinks: [
           { name: "Red Bull", sizes: { half: 40, full: 80 } },
           { name: "Monster", sizes: { half: 70, full: 140 } },
           { name: "Celsius", sizes: { half: 100, full: 200 } },
           { name: "NOCCO", sizes: { half: 90, full: 180 } }
         ]
+    },
+    {
+      category: "Carbonated Drinks",
+      drinks: [
+        { name: "Coca-Cola", sizes: { s: 24, m: 34, l: 46 } },
+        { name: "Pepsi", sizes: { s: 25, m: 38, l: 50 } },
+  
+      ]
     }
   ];
   
