@@ -1,6 +1,23 @@
-import React, { useState } from 'react';
-import caffeineDatabase from '../../../../server/db';
+import React, { useEffect, useState } from 'react';
+import caffeineDatabase from '../../db';
 import caffeineLogo from "../../assets/cutebean.png"
+import api from '../../utils/api';
+import styled from "styled-components";
+
+const StyledButton = styled.button`
+  background-color:#99753F;
+  color: white; 
+  padding: 10px 20px; 
+  border: none; 
+  border-radius: 5px;
+  cursor: pointer; 
+  font-size: 16px; 
+  transition: background-color 0.3s ease; 
+
+  &:hover {
+    background-color:#7B5926;
+  }
+`;
 
 const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -8,15 +25,54 @@ const Home = () => {
   const [selectedSize, setSelectedSize] = useState("");
   const [drinkList, setDrinkList] = useState([]); 
   const [message, setMessage] = useState("");
+  const [caffeineIntake, setCaffeineIntake] = useState(0); 
+
+  const getDrinks = async () => {
+    try {
+      const response = await api.get("/"); 
+      setDrinkList(response.data.data); 
+      console.log("fetched Drinks:", response.data.data);
+    } catch (error) {
+      console.error("error fetching drinks:", error);
+    }
+  };
+
+  useEffect(() => {
+    getDrinks();
+  }, []);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const drinkData = {
+      category: selectedCategory,
+      name: selectedDrink,
+      size: selectedSize,
+      caffeineContent: selectedDrinkData.size[selectedSize],
+    };
+
+    try {
+      const response = await api.post("/", drinkData);
+      console.log("Drink added:", response.data);
+
+      setDrinkList((prevList) => [...prevList, response.data.data]);
+
+      setMessage("Drink added successfully!");
+      setTimeout(() => setMessage(""), 2000);
+    } catch (err) {
+      console.error("Error adding drink:", err);
+      setMessage("Failed to add drink.");
+    }
+  };
 
   const handleCategoryChange = (event) => {
     setSelectedCategory(event.target.value);
-    // setSelectedDrink(""); 
   };
 
   const handleDrinkChange = (event) => {
     setSelectedDrink(event.target.value);
   };
+
   const handleSizeChange = (event) => {
     setSelectedSize(event.target.value);
   };
@@ -24,30 +80,15 @@ const Home = () => {
   const selectedCategoryData = caffeineDatabase.find((item) => item.category === selectedCategory);
   const selectedDrinkData = selectedCategoryData?.drinks.find((item) => item.name === selectedDrink);
 
-
-  const handleSubmit = (event) => {
-    event.preventDefault(); 
-    console.log(selectedCategory);
-    console.log(selectedDrink);
-    console.log(selectedSize);
-
-      // Display success message
-   setMessage("Added!");
-   setTimeout(() => {
-    setMessage("");
-  }, 2000);
-  };
-
- 
-   
-
   return (
     <div>
       <h1>Caffeine Pulse</h1>
       <img src={caffeineLogo} alt="Caffeine Logo" style={{ width: '200px', margin: '0 auto', display: 'block' }} />
 
-      <form  onSubmit={handleSubmit}>
-        <h2>Add your drink</h2>
+      <StyledButton>Add</StyledButton>
+
+      <form onSubmit={handleSubmit}>
+        <h2>Hey, What did you drink?</h2>
         <label htmlFor='category'>Category</label>
         <select value={selectedCategory} onChange={handleCategoryChange}>
           <option>Choose</option>
@@ -85,11 +126,26 @@ const Home = () => {
             </select>
           </>
         )}
-         <button type="submit" disabled={!selectedCategory || !selectedDrink || !selectedSize}>
+        <button type="submit" disabled={!selectedCategory || !selectedDrink || !selectedSize}>
           Submit
         </button>
         {message && <p>{message}</p>}
       </form>
+
+      <div>
+        <h2>Your Drinks</h2>
+        {Array.isArray(drinkList) && drinkList.length > 0 ? (
+          <ul>
+            {drinkList.map((drink) => (
+              <li key={drink._id}>
+                {drink.category} - {drink.name} ({drink.size}) - {drink.caffeineContent} mg
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>No drinks added yet.</p>
+        )}
+      </div>
     </div>
   );
 };

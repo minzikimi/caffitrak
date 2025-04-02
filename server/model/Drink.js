@@ -1,3 +1,5 @@
+//model/Drink.js
+
 import mongoose from "mongoose";
 
 const drinkSchema = new mongoose.Schema({

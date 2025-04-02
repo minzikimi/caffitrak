@@ -1,3 +1,5 @@
+//routes/index.js
+
 import express from 'express';
 import drinkAPI from './drink.api.js';
 
