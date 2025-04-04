@@ -1,12 +1,26 @@
-# React + Vite
+# CaffiTrak
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to **CaffiTrak** – a light-weighted app for tracking daily caffeine consumption! Whether it's coffee, energy drinks, tea, or any other caffeinated beverage, this app helps you keep track of your daily intake and warns you when you've exceeded the recommended caffeine consumption, helping you maintain a healthy balance. (BUT I LOVE COFFEE STILL)
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Track daily caffeine intake**: Add any drink that contains caffeine, from coffee and energy drinks to teas.
+- **Caffeine consumption limits**: The app calculates and notifies you when you exceed the recommended daily caffeine limit.
+- **Data persistence**: Your caffeine consumption data is stored securely in MongoDB.
+- **Responsive and Interactive UI**: Built with React and styled-components, the app features smooth animations with Framer Motion.
+- **Real-time data**: RESTful API to interact with the backend, powered by Express.
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Frontend**: React, Styled Components, Framer Motion
+- **Backend**: Node.js, Express (for the RESTful API)
+- **Database**: MongoDB
+- **Development Tools**: Vite (for fast build and HMR), ESLint (for linting)
+
+## Getting Started
+
+Follow these steps to run the project locally:
+
+### Step 1: Clone the repository
+
+Clone the project to your local machine... coming soon..
