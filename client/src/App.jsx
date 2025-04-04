@@ -1,17 +1,71 @@
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Header from "./components/Header/Header";
+import Home from "./pages/Home/Home";
+import Detail from "./pages/Detail/Detail";
+import Add from "./pages/Add/Add";
+import { createGlobalStyle } from 'styled-components';
+import AboutApp from "./pages/About/AboutApp";
 
+const GlobalStyle = createGlobalStyle`
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
 
-import './App.css'
-import Home from './components/Home/Home'
+  body {
+    padding-top: 100px; 
+    margin: 0;
+  }
 
-function App() {
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #99753F;
+  }
 
+  h2 {
+    margin-top: 40px;
+  }
 
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+
+  select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+`;
+
+const App = () => {
   return (
-    <>
-   
-      <Home />
-    </>
-  )
-}
+    <Router>
+      
+      <Header />
 
-export default App
+      <GlobalStyle />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/add" element={<Add />} />
+        <Route path="/detail" element={<Detail />} />
+        <Route path="/about" element={<AboutApp />} />
+      </Routes>
+    </Router>
+  );
+};
+
+export default App;
