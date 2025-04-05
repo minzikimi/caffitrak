@@ -76,8 +76,6 @@ const Add = ({ setMessage, setDrinkList }) => {
 
   return (
     <>
-    <img src={coffeeGif} alt="Coffee gif" style={{ width: '300px', margin: '0 auto', display: 'block' }} />
-
     <form onSubmit={handleSubmit}>
       <h2>Hey, What did you drink?</h2>
       <label htmlFor="category">Category</label>
@@ -122,6 +120,8 @@ const Add = ({ setMessage, setDrinkList }) => {
         Submit
       </Button>
     </form>
+
+    <img src={coffeeGif} alt="Coffee gif" style={{ width: '300px', margin: '0 auto', display: 'block' }} />
     </>
     
   );

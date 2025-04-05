@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../utils/api';
 import styled from 'styled-components';
-import "./Detail.css";
 
 
 const Container = styled.div`
@@ -10,6 +9,8 @@ const Container = styled.div`
     flex-direction : column;
     justify-content:center;
     align-items:center;
+    margin-top:3rem;
+  
 `;
 
 const Heading = styled.div`
@@ -23,7 +24,8 @@ const HeadingTitle = styled.h1`
   transform: rotate(2deg);
   padding: 0.2rem 1.2rem;
   border-radius: 20% 5% 20% 5%/5% 20% 25% 20%;
-  background-color: #fdcb6e;
+  background-color:#F7F3E2;
+  color: #47261f;
   font-size: 1.5rem;
 `;
 

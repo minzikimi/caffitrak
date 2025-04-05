@@ -3,7 +3,7 @@ import coffeeCat from "../../assets/coffeecat.gif"
 
 const AboutApp = () => {
   return (
-    <article style={{ fontSize: '1.1rem', lineHeight: '1.6', clear: 'both' }} aria-labelledby="about-app-title">
+    <article style={{   margin:'3rem',fontSize: '1.1rem', lineHeight: '1.6', clear: 'both' }} aria-labelledby="about-app-title">
       <h1 id="about-app-title" style={{ fontSize: '2rem', textAlign: 'center', color: '#47261f' }}>
         About This App
       </h1>

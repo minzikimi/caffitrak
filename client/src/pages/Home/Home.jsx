@@ -1,26 +1,54 @@
 import React, { useEffect, useState } from 'react';
 import api from '../../utils/api';
-import styled from "styled-components";
-import coffeeCatGif from "../../assets/coffeeCat2.gif"
+import { motion } from 'framer-motion';
+import coffeeBeanIcon from "../../assets/cutebean.png"; 
+import styled from 'styled-components';
 
 const calculateTotalCaffeine = (drinks) => {
   return drinks.reduce((sum, drink) => sum + drink.caffeineContent, 0);
-}
+};
+
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  min-height: 100vh;
+
+`;
+
+const ContentWrapper = styled.div`
+  text-align: center;
+  h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #47261f;
+    margin-bottom: 15px;
+  }
+
+  p {
+    font-size: 1.6rem;
+    color: #6f6f6f;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+`;
 
 const Home = () => {
   const [drinkList, setDrinkList] = useState([]);
-  const [totalCaffeine, setTotalCaffeine] = useState(0); 
+  const [totalCaffeine, setTotalCaffeine] = useState(0);
 
   const getDrinks = async () => {
     try {
-      const response = await api.get("/"); 
+      const response = await api.get('/');
       const drinks = response.data.data;
       setDrinkList(drinks);
 
       const total = calculateTotalCaffeine(drinks);
-      setTotalCaffeine(total);  
-    } catch (error) {
-      console.error("Error fetching drinks:", error);
+      setTotalCaffeine(total);
+    } catch (err) {
+      console.error('Error fetching drinks:', err);
     }
   };
 
@@ -29,19 +57,42 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
-      <img src={coffeeCatGif} alt="Animated cat making coffee" style={{ width: '300px', margin: '0 auto', display: 'block' }} />
+    <Container>
+      {/* animated coffee bean */}
+      <motion.div
+        style={{
+          margin: '0 auto',
+          display: 'block',
+          width: '300px', 
+          height: '300px',
+          backgroundImage: `url(${coffeeBeanIcon})`,
+          backgroundSize: 'contain',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+        }}
+        animate={{
+          y: [0, -30, 0],
+        }}
+        transition={{
+          duration: 1.5,
+          ease: 'easeInOut',
+          repeat: Infinity,
+          repeatType: 'loop',
+          repeatDelay: 0.5,
+        }}
+      />
 
-      <div>
-        <h2>Your Total Caffeine Consumption</h2>
+      <ContentWrapper>
+        <h2>Your Daily Caffeine Intake</h2>
         {totalCaffeine > 0 ? (
-          <p>Total Caffeine: {totalCaffeine} mg</p>  
+          <p>Total Caffeine: <strong>{totalCaffeine} mg</strong></p>
         ) : (
-          <p>No drinks added yet.</p>
+          <p>No drinks added yet. Start adding your caffeine!</p>
         )}
-      </div>
-    </div>
+      </ContentWrapper>
+    </Container>
   );
 };
+
 
 export default Home;

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Link, useMatch } from "react-router-dom";
 import { motion } from "framer-motion";  
-import caffeineLogo from "../../assets/cutebean.png";
 import homeIcon from "../../assets/home.svg";
 import addIcon from "../../assets/add.svg";
 import viewIcon from "../../assets/view.svg";
@@ -10,7 +9,6 @@ import aboutIcon from "../../assets/about.svg";
 
 const Nav = styled.nav`
   display: flex;
-  justify-content: space-around;
   align-items: center;
   position: fixed;
   width: 100%;
@@ -63,9 +61,9 @@ const LogoAndHamburgerContainer = styled.div`
 
 const Items = styled.ul`
   display: flex;
-  align-items: center;
   gap: 25px;
   padding-left:2rem;
+ 
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -124,6 +122,7 @@ const HamburgerIcon = styled.div`
   display: none;
   flex-direction: column;
   justify-content: space-between;
+  
   width: 30px;
   height: 25px;
   cursor: pointer;
@@ -137,6 +136,8 @@ const HamburgerIcon = styled.div`
 
   @media (max-width: 768px) {
     display: flex;
+    
+   
   }
 `;
 
@@ -157,7 +158,6 @@ const Header = () => {
     <Nav>
         <LogoAndHamburgerContainer>
         <Logo>
-          <img src={caffeineLogo} alt="Caffeine Logo" />
           CaffiTrak
         </Logo>
 

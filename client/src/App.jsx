@@ -18,6 +18,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     padding-top: 100px; 
     margin: 0;
+    
   }
 
   h1 {
