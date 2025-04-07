@@ -6,6 +6,7 @@ import homeIcon from "../../assets/home.svg";
 import addIcon from "../../assets/add.svg";
 import viewIcon from "../../assets/view.svg";
 import aboutIcon from "../../assets/about.svg";
+import roastedBeanIcon from "../../assets/roasted-coffee-bean.svg";
 
 const Nav = styled.nav`
   display: flex;
@@ -17,6 +18,7 @@ const Nav = styled.nav`
   height: 100px;
   z-index: 1000;
   transition: background-color 0.3s ease;
+  border-bottom : 1px solid #47261f;
 
   @media (max-width: 768px) {
 
@@ -35,6 +37,7 @@ const Logo = styled.div`
   gap: 10px;
   margin-bottom: 10px;
   padding-left:2rem;
+  
 
   @media (max-width: 768px) {
     margin-bottom: 20px; 
@@ -105,17 +108,17 @@ const SLink = styled(Link)`
   }
 `;
 
-const Circle = styled(motion.span)`
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  bottom: -5px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #99753F;
-  transition: all 0.3s ease;
-`;
+// const Circle = styled(motion.span)`
+//   position: absolute;
+//   width: 8px;
+//   height: 8px;
+//   border-radius: 50%;
+//   bottom: -5px;
+//   left: 50%;
+//   transform: translateX(-50%);
+//   background-color: #99753F;
+//   transition: all 0.3s ease;
+// `;
 
 
 const HamburgerIcon = styled.div`
@@ -136,9 +139,16 @@ const HamburgerIcon = styled.div`
 
   @media (max-width: 768px) {
     display: flex;
-    
-   
   }
+`;
+const RoastedBeanIcon = styled.img`
+  position: absolute;
+  width: 20px;
+  height: auto;
+  bottom: -20px;
+  left: 50%;
+  transform:  rotate(-70deg);
+  transition: all 0.3s ease;
 `;
 
 const Header = () => {
@@ -156,7 +166,7 @@ const Header = () => {
 
   return (
     <Nav>
-        <LogoAndHamburgerContainer>
+      <LogoAndHamburgerContainer>
         <Logo>
           CaffiTrak
         </Logo>
@@ -173,28 +183,28 @@ const Header = () => {
           <SLink to="/" onClick={handleLinkClick}>
             <img src={homeIcon} alt="Home Icon" style={{ width: '25px' }} />
             Home
-            {homeMatch && <Circle layoutId="circle" />}
+            {homeMatch && <RoastedBeanIcon src={roastedBeanIcon} alt="Roasted Bean Icon" />}
           </SLink>
         </Item>
         <Item>
           <SLink to="/add" onClick={handleLinkClick}>
             <img src={addIcon} alt="Add Icon" style={{ width: '25px' }} />
             Add
-            {addMatch && <Circle layoutId="circle" />}
+            {addMatch && <RoastedBeanIcon src={roastedBeanIcon} alt="Roasted Bean Icon" />}
           </SLink>
         </Item>
         <Item>
           <SLink to="/detail" onClick={handleLinkClick}>
             <img src={viewIcon} alt="View Icon" style={{ width: '25px' }} />
             View
-            {detailMatch && <Circle layoutId="circle" />}
+            {detailMatch && <RoastedBeanIcon src={roastedBeanIcon} alt="Roasted Bean Icon" />}
           </SLink>
         </Item>
         <Item>
           <SLink to="/about" onClick={handleLinkClick}>
             <img src={aboutIcon} alt="About Icon" style={{ width: '25px' }} />
             About App
-            {aboutMatch && <Circle layoutId="circle" />}
+            {aboutMatch && <RoastedBeanIcon src={roastedBeanIcon} alt="Roasted Bean Icon" />}
           </SLink>
         </Item>
       </Items>

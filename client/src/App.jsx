@@ -6,6 +6,8 @@ import Detail from "./pages/Detail/Detail";
 import Add from "./pages/Add/Add";
 import { createGlobalStyle } from 'styled-components';
 import AboutApp from "./pages/About/AboutApp";
+import backgroundImg from "../src/assets/background.jpg"
+import Footer from "./components/Footer/Footer";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -15,10 +17,13 @@ const GlobalStyle = createGlobalStyle`
     font-family: Arial, sans-serif;
   }
 
-  body {
+ body {
     padding-top: 100px; 
     margin: 0;
-    
+    background-image: url(${backgroundImg}); /* Apply background image */
+    background-size: cover; /* Ensure the image covers the whole background */
+    background-position: center; /* Center the background image */
+    background-attachment: fixed; /* Keep the background fixed when scrolling */
   }
 
   h1 {
@@ -57,6 +62,7 @@ const App = () => {
     <Router>
       
       <Header />
+     
 
       <GlobalStyle />
       <Routes>
@@ -65,6 +71,7 @@ const App = () => {
         <Route path="/detail" element={<Detail />} />
         <Route path="/about" element={<AboutApp />} />
       </Routes>
+      <Footer />
     </Router>
   );
 };

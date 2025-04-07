@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../utils/api';
 import styled from 'styled-components';
+import coffeeIcon from "../../assets/coffee.svg";
+import teaIcon from "../../assets/tea.svg";
+import cokeIcon from "../../assets/coke.svg";
+import energydrinkIcon from "../../assets/energy-drink.svg"
 
 
 const Container = styled.div`
@@ -10,7 +14,7 @@ const Container = styled.div`
     justify-content:center;
     align-items:center;
     margin-top:3rem;
-  
+  max-height: 100vh;
 `;
 
 const Heading = styled.div`
@@ -40,6 +44,13 @@ const DrinkItem = styled.li`
   padding: 0.5rem;
 `;
 
+const Icon = styled.img`
+  width:50px;
+  
+`
+
+
+
 const Detail = () => {
   const [drinkList, setDrinkList] = useState([]);
 
@@ -56,6 +67,13 @@ const Detail = () => {
     getDrinks();
   }, []);
 
+  const categoryIcons = {
+    "Coffee": coffeeIcon,
+    "Tea": teaIcon,
+    "Energy Drink": energydrinkIcon,
+    "Carbonated Drinks": cokeIcon,
+  };
+
   return (
     <main>
     <Container>
@@ -68,6 +86,8 @@ const Detail = () => {
           <DrinkList>
             {drinkList.map((drink) => (
               <DrinkItem key={drink._id}>
+
+<Icon src={categoryIcons[drink.category]} alt={drink.category} />
                 {drink.category} - {drink.name} ({drink.size}) - {drink.caffeineContent} mg
               </DrinkItem>
             ))}

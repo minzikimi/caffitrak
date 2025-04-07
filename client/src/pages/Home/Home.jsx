@@ -14,7 +14,7 @@ const Container = styled.div`
   flex-direction: column;
 
   align-items: center;
-  min-height: 100vh;
+  max-height: 100vh;
 
 `;
 
@@ -59,7 +59,7 @@ const Home = () => {
   return (
     <Container>
       {/* animated coffee bean */}
-      <motion.div
+      {/* <motion.div
         style={{
           margin: '0 auto',
           display: 'block',
@@ -80,7 +80,7 @@ const Home = () => {
           repeatType: 'loop',
           repeatDelay: 0.5,
         }}
-      />
+      /> */}
 
       <ContentWrapper>
         <h2>Your Daily Caffeine Intake</h2>
