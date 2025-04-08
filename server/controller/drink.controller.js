@@ -26,7 +26,17 @@ drinkController.createDrink=async(req,res)=>{
 
 drinkController.getDrink=async(req,res)=>{
     try{
-        const drinkList = await Drink.find({}).select("-__v")//give me all data!
+
+        const today = new Date();
+
+        const startOfDay = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+        const endOfDay = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
+        const drinkList = await Drink.find({
+            createdAt: {
+                $gte: startOfDay, 
+                $lt: endOfDay     
+            }
+        }).select("-__v"); // exclude __v field
         res.status(200).json({status:"ok", data:drinkList})
     }
     catch(err){

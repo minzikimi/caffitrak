@@ -86,11 +86,17 @@ const HeadingTitle = styled.h1`
 const DrinkList = styled.ul`
   list-style-type: none;
   padding: 0;
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
 `;
 
 const DrinkItem = styled.li`
-  text-align: left;
-  position: relative;
+  display: flex; 
+  align-items: center; 
+  gap: 1rem; 
+  font-size: 1.2rem;
   padding: 0.5rem;
 `;
 

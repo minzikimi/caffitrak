@@ -21,7 +21,8 @@ const drinkSchema = new mongoose.Schema({
         required: true
     }
 },{
-    timestamps : true
+    timestamps : true,
+    versionKey: false
 });
 
 const Drink = mongoose.model('Drink', drinkSchema);
