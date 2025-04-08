@@ -3,50 +3,8 @@ import caffeineDatabase from "../../db";
 import api from "../../utils/api";
 import styled from "styled-components";
 import coffeeGif from "../../assets/giphy.gif";
+import Button from "../../components/Button";
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  align-items: center;
-  width: 100%;
-  max-height: 100vh;
-
-`;
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center; 
-  gap: 20px;
-  color:#47261f;
-`;
-
-const Button = styled.button`
-  background-color: #99753f;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: #7b5926;
-  }
-
-  &:disabled {
-    background-color: #d1bda3;  
-    cursor: not-allowed;       
-    opacity: 0.6;             
-  }
-`;
-
-const CoffeeGif = styled.img`
-  width: 300px;
-  margin-top: 20px; 
-`;
 
 const Add = ({ setMessage, setDrinkList }) => {
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -148,5 +106,29 @@ const Add = ({ setMessage, setDrinkList }) => {
     </Container>
   );
 };
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top:50px;
+  align-items: center;
+  width: 100%;
+  max-height: 100vh;
+
+`;
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  gap: 20px;
+  color:#47261f;
+  font-size:1.5rem;
+`;
+
+// const CoffeeGif = styled.img`
+//   width: 300px;
+//   margin-top: 20px; 
+// `;
 
 export default Add;

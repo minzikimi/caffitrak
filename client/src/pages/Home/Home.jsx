@@ -8,33 +8,6 @@ const calculateTotalCaffeine = (drinks) => {
   return drinks.reduce((sum, drink) => sum + drink.caffeineContent, 0);
 };
 
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  align-items: center;
-  max-height: 100vh;
-
-`;
-
-const ContentWrapper = styled.div`
-  text-align: center;
-  h2 {
-    font-size: 2rem;
-    font-weight: 600;
-    color: #47261f;
-    margin-bottom: 15px;
-  }
-
-  p {
-    font-size: 1.6rem;
-    color: #6f6f6f;
-    font-weight: 500;
-    margin-bottom: 10px;
-  }
-`;
-
 const Home = () => {
   const [drinkList, setDrinkList] = useState([]);
   const [totalCaffeine, setTotalCaffeine] = useState(0);
@@ -59,17 +32,7 @@ const Home = () => {
   return (
     <Container>
       {/* animated coffee bean */}
-      {/* <motion.div
-        style={{
-          margin: '0 auto',
-          display: 'block',
-          width: '300px', 
-          height: '300px',
-          backgroundImage: `url(${coffeeBeanIcon})`,
-          backgroundSize: 'contain',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
-        }}
+      <AnimatedIcon
         animate={{
           y: [0, -30, 0],
         }}
@@ -80,7 +43,7 @@ const Home = () => {
           repeatType: 'loop',
           repeatDelay: 0.5,
         }}
-      /> */}
+      />
 
       <ContentWrapper>
         <h2>Your Daily Caffeine Intake</h2>
@@ -94,5 +57,39 @@ const Home = () => {
   );
 };
 
+const AnimatedIcon = styled(motion.div)`
+  margin-top:50px;
+  display: block;
+  width: 300px; 
+  height: 300px;
+  background-image: url(${coffeeBeanIcon});
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: 100vh;
+`;
+
+const ContentWrapper = styled.div`
+  text-align: center;
+  h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #47261f;
+    margin-bottom: 15px;
+  }
+
+  p {
+    font-size: 1.6rem;
+    color: #6f6f6f;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+`;
 
 export default Home;

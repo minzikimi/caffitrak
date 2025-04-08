@@ -1,6 +1,21 @@
-// Footer.js
 import React from 'react';
 import styled from 'styled-components';
+
+const Footer = () => {
+  return (
+    <FooterWrapper>
+      <FooterContent>
+        <FooterText>
+          &copy; {new Date().getFullYear()} CaffiTrak. All rights reserved.
+        </FooterText>
+        <FooterText>
+          By Minji K.
+        </FooterText>
+       
+      </FooterContent>
+    </FooterWrapper>
+  );
+};
 
 const FooterWrapper = styled.footer`
 
@@ -29,21 +44,5 @@ const FooterText = styled.p`
   margin: 0;
   padding: 5px;
 `;
-
-const Footer = () => {
-  return (
-    <FooterWrapper>
-      <FooterContent>
-        <FooterText>
-          &copy; {new Date().getFullYear()} CaffiTrak. All rights reserved.
-        </FooterText>
-        <FooterText>
-          By Minji K.
-        </FooterText>
-       
-      </FooterContent>
-    </FooterWrapper>
-  );
-};
 
 export default Footer;
