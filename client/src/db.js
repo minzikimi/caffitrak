@@ -2,21 +2,21 @@ const caffeineDatabase = [
   {
     category: "Coffee",
     drinks: [
-      { name: "Espresso", size: { s: 63, m: 126, l: 189 } },
-      { name: "Americano", size: { s: 75, m: 150, l: 225 } },
-      { name: "Latte", size: { s: 63, m: 126, l: 189 } },
-      { name: "Cappuccino", size: { s: 63, m: 126, l: 189 } },
-      { name: "Cold Brew", size: { s: 155, m: 238, l: 310 } }
+      { name: "Espresso", size: { S: 63, M: 126, L: 189 } },
+      { name: "Americano", size: { S: 75, M: 150, L: 225 } },
+      { name: "Latte", size: { S: 63, M: 126, L: 189 } },
+      { name: "Cappuccino", size: { S: 63, M: 126, L: 189 } },
+      { name: "Cold Brew", size: { S: 155, M: 238, L: 310 } }
     ]
   },
   {
     category: "Tea",
     drinks: [
-      { name: "Green Tea", size: { s: 12, m: 24, l: 36 } },
-      { name: "Black Tea", size: { s: 14, m: 28, l: 42 } },
-      { name: "Earl Grey", size: { s: 14, m: 28, l: 42 } },
-      { name: "Oolong Tea", size: { s: 25, m: 50, l: 75 } },
-      { name: "Chai Tea", size: { s: 25, m: 50, l: 75 } }
+      { name: "Green Tea", size: { S: 12, M: 24, L: 36 } },
+      { name: "Black Tea", size: { S: 14, M: 28, L: 42 } },
+      { name: "Earl Grey", size: { S: 14, M: 28, L: 42 } },
+      { name: "Oolong Tea", size: { S: 25, M: 50, L: 75 } },
+      { name: "Chai Tea", size: { S: 25, M: 50, L: 75 } }
     ]
   },
   {
@@ -31,8 +31,8 @@ const caffeineDatabase = [
   {
     category: "Carbonated Drinks",
     drinks: [
-      { name: "Coca-Cola", size: { s: 24, m: 34, l: 46 } },
-      { name: "Pepsi", size: { s: 25, m: 38, l: 50 } },
+      { name: "Coca-Cola", size: { S: 24, M: 34, L: 46 } },
+      { name: "Pepsi", size: { S: 25, M: 38, L: 50 } }
     ]
   }
 ];

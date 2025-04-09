@@ -39,28 +39,28 @@ const Header = () => {
       <Items isOpen={isOpen}>
         <Item>
           <SLink to="/" onClick={handleLinkClick}>
-            <img src={homeIcon} alt="Home Icon" style={{ width: '25px' }} />
+            {/* <img src={homeIcon} alt="Home Icon" style={{ width: '25px' }} /> */}
             Home
             {homeMatch && <RoastedBeanIcon src={roastedBeanIcon} alt="Roasted Bean Icon" />}
           </SLink>
         </Item>
         <Item>
           <SLink to="/add" onClick={handleLinkClick}>
-            <img src={addIcon} alt="Add Icon" style={{ width: '25px' }} />
+            {/* <img src={addIcon} alt="Add Icon" style={{ width: '25px' }} /> */}
             Add
             {addMatch && <RoastedBeanIcon src={roastedBeanIcon} alt="Roasted Bean Icon" />}
           </SLink>
         </Item>
         <Item>
           <SLink to="/detail" onClick={handleLinkClick}>
-            <img src={viewIcon} alt="View Icon" style={{ width: '25px' }} />
+            {/* <img src={viewIcon} alt="View Icon" style={{ width: '25px' }} /> */}
             View
             {detailMatch && <RoastedBeanIcon src={roastedBeanIcon} alt="Roasted Bean Icon" />}
           </SLink>
         </Item>
         <Item>
           <SLink to="/about" onClick={handleLinkClick}>
-            <img src={aboutIcon} alt="About Icon" style={{ width: '25px' }} />
+            {/* <img src={aboutIcon} alt="About Icon" style={{ width: '25px' }} /> */}
             About App
             {aboutMatch && <RoastedBeanIcon src={roastedBeanIcon} alt="Roasted Bean Icon" />}
           </SLink>
@@ -69,6 +69,8 @@ const Header = () => {
     </Nav>
   );
 };
+
+// background-color:#F5F5F5;
 
 const Nav = styled.nav`
   display: flex;
@@ -80,7 +82,8 @@ const Nav = styled.nav`
   height: 100px;
   z-index: 1000;
   transition: background-color 0.3s ease;
-  background-color:#F5F5F5;
+  background-color:white;
+ 
   
 
   @media (max-width: 768px) {
@@ -92,7 +95,7 @@ const Nav = styled.nav`
 `;
 
 const Logo = styled.div`
-  font-size: 22px;
+  font-size:2rem;
   color: #47261f;
   font-family: "Boldonse", system-ui;
   display: flex;
@@ -127,7 +130,7 @@ const LogoAndHamburgerContainer = styled.div`
 
 const Items = styled.ul`
   display: flex;
-  gap: 25px;
+  gap: 3rem;
   padding-left:2rem;
  
 
@@ -142,13 +145,13 @@ const Items = styled.ul`
     left: 0;
     background-color: white;
     width: 100%;
-  
+    gap:1rem;
   }
 `;
 
 const Item = styled.li`
   position: relative;
-  font-size: 17px;
+  font-size: 1.5rem;
   font-weight: 300;
   margin: 10px 0;
 
@@ -182,8 +185,8 @@ const HamburgerIcon = styled.div`
   cursor: pointer;
 
   span {
-    width: 30px;
-    height: 3px;
+    width: 25px;
+    height: 2px;
     background-color: #333;
     border-radius: 5px;
   }
@@ -194,9 +197,9 @@ const HamburgerIcon = styled.div`
 `;
 const RoastedBeanIcon = styled.img`
   position: absolute;
-  width: 20px;
+  width: 30px;
   height: auto;
-  bottom: -20px;
+  bottom: -30px;
   left: 50%;
   transform:  rotate(-70deg);
   transition: all 0.3s ease;

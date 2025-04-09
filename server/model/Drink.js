@@ -10,7 +10,7 @@ const drinkSchema = new mongoose.Schema({
     size: {
         type: String,
         required: true,
-        enum: ['s', 'm', 'l', 'half', 'full']
+        enum: ['S', 'M', 'L', 'half', 'full']
     },
     name: {
         type: String,

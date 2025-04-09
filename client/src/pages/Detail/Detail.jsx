@@ -5,6 +5,7 @@ import coffeeIcon from "../../assets/coffee.svg";
 import teaIcon from "../../assets/tea.svg";
 import cokeIcon from "../../assets/coke.svg";
 import energydrinkIcon from "../../assets/energy-drink.svg"
+import Button from '../../components/Button';
 
 
 const Detail = () => {
@@ -18,6 +19,16 @@ const Detail = () => {
       console.error("Error fetching drinks:", error);
     }
   };
+
+
+  const deleteDrinks = async () =>{
+    try{
+
+    }
+    catch(err){
+      
+    }
+  }
 
   useEffect(() => {
     getDrinks();
@@ -45,9 +56,10 @@ const Detail = () => {
 
           <Icon src={categoryIcons[drink.category]} alt={drink.category} />
                 {drink.category} - {drink.name} ({drink.size}) - {drink.caffeineContent} mg
-              </DrinkItem>
+                <Button>Remove</Button>
+             </DrinkItem>
             ))}
-          </DrinkList>
+          </DrinkList> 
         ) : (
           <p>No drinks added yet.</p>
         )}
@@ -56,6 +68,8 @@ const Detail = () => {
     </main>
   );
 };
+
+
 
 const Container = styled.div`
   width: 100%;

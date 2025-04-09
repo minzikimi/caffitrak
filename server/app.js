@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import cors from "cors"; 
 import indexRouter from "./routes/index.js";
+// import rateLimit from "express-rate-limit"; 
 
 
 const app = express();
@@ -25,6 +26,14 @@ mongoose.connect(mongoURI).then(() => {
 });
 
 // start server
-app.listen(5002, () => {
-    console.log("server on 5002");
+app.listen(5004, () => {
+    console.log("server on 5004");
 });
+
+// // Rate limiting to prevent DoS attacks
+// const limiter = rateLimit({
+//     windowMs: 15 * 60 * 1000, // 15 minutes
+//     max: 100, // Limit each IP to 100 requests per windowMs
+//     message: "Too many requests from this IP, please try again later.",
+// });
+// app.use(limiter);

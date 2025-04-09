@@ -6,7 +6,7 @@ import coffeeGif from "../../assets/giphy.gif";
 import Button from "../../components/Button";
 
 
-const Add = ({ setMessage, setDrinkList }) => {
+const Add = ({ setDrinkList }) => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedDrink, setSelectedDrink] = useState("");
   const [selectedSize, setSelectedSize] = useState("");
@@ -47,11 +47,9 @@ const Add = ({ setMessage, setDrinkList }) => {
 
       setDrinkList((prevList) => [...prevList, response.data.data]);
 
-      setMessage("Drink added successfully!");
-      setTimeout(() => setMessage(""), 2000);
     } catch (err) {
       console.error("Error adding drink:", err);
-      setMessage("Failed to add drink.");
+  
     }
   };
 
