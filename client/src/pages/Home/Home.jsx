@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import api from '../../utils/api';
 import { motion } from 'framer-motion';
-import coffeeBeanIcon from "../../assets/cutebean.png"; 
+// import coffeeBeanIcon from "../../assets/cutebean.png"; 
 import styled from 'styled-components';
+import heartIcon from "../../assets/heart.png"
+import brokenIcon from "../../assets/broken.png"
+
 
 const calculateTotalCaffeine = (drinks) => {
   return drinks.reduce((sum, drink) => sum + drink.caffeineContent, 0);
@@ -43,7 +46,7 @@ const Home = () => {
           repeatType: 'loop',
           repeatDelay: 0.5,
         }}
-      />
+        backgroundImage={totalCaffeine > 400 ? brokenIcon : heartIcon}/>
 
       <ContentWrapper>
         <h2>Your Daily Caffeine Intake</h2>
@@ -58,11 +61,11 @@ const Home = () => {
 };
 
 const AnimatedIcon = styled(motion.div)`
-  margin-top:50px;
+  margin-top:5rem;
   display: block;
   width: 300px; 
   height: 300px;
-  background-image: url(${coffeeBeanIcon});
+  background-image: url(${(props) => props.backgroundImage});
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;

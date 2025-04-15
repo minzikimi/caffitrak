@@ -25,9 +25,11 @@ const Header = () => {
   return (
     <Nav>
       <LogoAndHamburgerContainer>
+      <SLink to="/" onClick={handleLinkClick}>
         <Logo>
           CaffiTrak
         </Logo>
+       </SLink>
 
         <HamburgerIcon onClick={toggleMenu}>
           <span />
@@ -37,13 +39,6 @@ const Header = () => {
       </LogoAndHamburgerContainer>
 
       <Items isOpen={isOpen}>
-        <Item>
-          <SLink to="/" onClick={handleLinkClick}>
-            {/* <img src={homeIcon} alt="Home Icon" style={{ width: '25px' }} /> */}
-            Home
-            {homeMatch && <RoastedBeanIcon src={roastedBeanIcon} alt="Roasted Bean Icon" />}
-          </SLink>
-        </Item>
         <Item>
           <SLink to="/add" onClick={handleLinkClick}>
             {/* <img src={addIcon} alt="Add Icon" style={{ width: '25px' }} /> */}
@@ -77,12 +72,13 @@ const Nav = styled.nav`
   align-items: center;
   position: fixed;
   width: 100%;
-  padding: 20px 50px 20px 0;
   top: 0;
-  height: 100px;
+  padding:2rem;
+  
   z-index: 1000;
   transition: background-color 0.3s ease;
-  background-color:white;
+  background-color:#F6E1E4;
+  border-bottom :1px solid white;
  
   
 
@@ -120,6 +116,7 @@ const LogoAndHamburgerContainer = styled.div`
   align-items: center;
   width: 100%;  
   padding: 0 20px;
+
 
   @media (max-width: 768px) {
     justify-content: space-between;

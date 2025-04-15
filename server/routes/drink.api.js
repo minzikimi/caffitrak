@@ -7,12 +7,8 @@ router.post("/", drinkController.createDrink);
 
 router.get("/", drinkController.getDrink);
 
-router.put("/:id", (req, res) => {
-    res.send("update drink");
-});
+router.put("/:id", drinkController.updateDrink); // fixed
 
-router.delete("/:id", (req, res) => {
-    res.send("delete drink");
-});
+router.delete("/:id", drinkController.deleteDrink); // fixed
 
 export default router;

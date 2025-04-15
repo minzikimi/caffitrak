@@ -11,6 +11,7 @@ const AboutApp = () => {
         <img 
           src={coffeeCat} 
           alt="Animated gif of a cat drinking coffee" 
+          style={{ borderRadius: "50%" }}
         />
       </ImageWrapper>
 
@@ -41,7 +42,6 @@ const AboutApp = () => {
   );
 };
 
-// Styled Components
 
 const ArticleWrapper = styled.article`
   margin: 3rem;

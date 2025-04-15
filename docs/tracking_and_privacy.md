@@ -1,0 +1,1 @@
+Tracks user's caffeine intake data, but is stored only in local storage or DB and is not transmitted externally.

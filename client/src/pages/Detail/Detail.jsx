@@ -15,18 +15,19 @@ const Detail = () => {
     try {
       const response = await api.get("/"); // fetching drinks from the backend
       setDrinkList(response.data.data);
-    } catch (error) {
-      console.error("Error fetching drinks:", error);
+    } catch (err) {
+      console.error("Error fetching drinks:", err);
     }
   };
 
 
-  const deleteDrinks = async () =>{
+  const deleteDrinks = async (id) =>{
     try{
-
+      const response = await api.delete(`/${id}`);
+      setDrinkList((prevList) => prevList.filter((drink) => drink._id !== id));
     }
     catch(err){
-      
+      console.error("error deleting drink:", err);
     }
   }
 
@@ -56,7 +57,7 @@ const Detail = () => {
 
           <Icon src={categoryIcons[drink.category]} alt={drink.category} />
                 {drink.category} - {drink.name} ({drink.size}) - {drink.caffeineContent} mg
-                <Button>Remove</Button>
+                <Button onClick={()=> deleteDrinks(drink._id)}>Remove</Button>
              </DrinkItem>
             ))}
           </DrinkList> 
