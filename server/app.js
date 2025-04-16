@@ -6,25 +6,16 @@ import indexRouter from "./routes/index.js";
 // import rateLimit from "express-rate-limit"; 
 import "dotenv/config";
 
-
-const mongoURI = process.env.MONGO_URI; 
-mongoose.connect(mongoURI)
-    .then(() => console.log("MongoDB connected"))
-    .catch((err) => console.log("MongoDB connection failed:", err));
-
 const app = express();
 
 // enable CORS for all origins (basic configuration)
 app.use(cors());
-
-
 app.use(bodyParser.json());
-
 // use routes
 app.use("/api", indexRouter);
 
 // mongoDB connection
-
+const mongoURI = process.env.MONGO_URI; 
 mongoose.connect(mongoURI).then(() => {
     console.log("mongoose connected");
 }).catch((err) => {

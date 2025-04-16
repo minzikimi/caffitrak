@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "http://localhost:5004/api/drinks",  // 직접 URL을 작성
+    baseURL: "http://localhost:5004/api/drinks",  
     headers: {
         "content-type": "application/json",
     },
