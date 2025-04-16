@@ -7,8 +7,10 @@ import indexRouter from "./routes/index.js";
 import "dotenv/config";
 
 
-const VITE_BACKEND_URL = process.env.VITE_BACKEND_URL;
-console.log("moungouri", process.env.VITE_BACKEND_URL);
+const mongoURI = process.env.MONGO_URI; 
+mongoose.connect(mongoURI)
+    .then(() => console.log("MongoDB connected"))
+    .catch((err) => console.log("MongoDB connection failed:", err));
 
 const app = express();
 
@@ -22,7 +24,7 @@ app.use(bodyParser.json());
 app.use("/api", indexRouter);
 
 // mongoDB connection
-const mongoURI = VITE_BACKEND_URL;
+
 mongoose.connect(mongoURI).then(() => {
     console.log("mongoose connected");
 }).catch((err) => {
