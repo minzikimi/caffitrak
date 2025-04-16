@@ -23,9 +23,8 @@ mongoose.connect(mongoURI).then(() => {
 });
 
 // start server
-const PORT = process.env.PORT || 5004; // Render에서는 process.env.PORT를 사용
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+app.listen(5004, () => {
+    console.log("server on 5004");
 });
 
 // // Rate limiting to prevent DoS attacks
