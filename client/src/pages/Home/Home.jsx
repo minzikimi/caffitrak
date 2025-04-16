@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import api from '../../utils/api';
+import api from "../../utils/api"
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import heartIcon from "../../assets/heart.png";

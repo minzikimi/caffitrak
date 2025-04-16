@@ -2,7 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import cors from "cors"; 
-import indexRouter from "./routes/index.js";
+import indexRouter from "./server/routes/index.js";
 // import rateLimit from "express-rate-limit"; 
 import "dotenv/config";
 
