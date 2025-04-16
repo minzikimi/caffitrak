@@ -10,6 +10,7 @@ const AboutApp = () => {
       <ImageWrapper>
         <img 
           src={coffeeCat} 
+          width={"200px"}
           alt="Animated gif of a cat drinking coffee" 
           style={{ borderRadius: "50%" }}
         />
@@ -42,18 +43,26 @@ const AboutApp = () => {
   );
 };
 
-
 const ArticleWrapper = styled.article`
-  margin: 3rem;
+  margin: 3rem auto;
+  max-width: 800px;
   font-size: 1.1rem;
   line-height: 1.6;
-  clear: both;
+  color: #333;
+  padding: 1rem;
+  border-radius: 8px;
 `;
 
 const Title = styled.h1`
   font-size: 2rem;
+  width:40%;
   text-align: center;
-  color: #47261f;
+  color: #ffffff;
+  background-color: #47261f;
+  transform: rotate(2deg);
+  padding: 0.5rem 1.2rem;
+  border-radius: 20% 5% 20% 5%/5% 20% 25% 20%;
+  margin-bottom: 2rem;
 `;
 
 const ImageWrapper = styled.figure`
@@ -66,25 +75,26 @@ const ImageWrapper = styled.figure`
 const Paragraph = styled.p`
   font-family: Arial, sans-serif;
   font-size: 1rem;
-  color: #555;
-  line-height: 1.6;
+  color: #333;
+  line-height: 1.7;
   margin-bottom: 1rem;
 `;
 
 const StrongText = styled.strong`
-  font-size: 1.5rem;
-  color: #99753F;
+  font-size: 1.2rem;
+  color: #1a1a1a;
 `;
 
 const BoldText = styled.span`
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: bold;
+  color: #0c0c0c;
 `;
 
 const HighlightText = styled.span`
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
-  color: tomato;
+  color: #d00000; 
 `;
 
 export default AboutApp;

@@ -6,7 +6,6 @@ import Detail from "./pages/Detail/Detail";
 import Add from "./pages/Add/Add";
 import { createGlobalStyle } from 'styled-components';
 import AboutApp from "./pages/About/AboutApp";
-// import backgroundImg from "../src/assets/background.jpg"
 import Footer from "./components/Footer";
 
 const GlobalStyle = createGlobalStyle`

@@ -4,32 +4,50 @@ import styled from 'styled-components';
 import coffeeIcon from "../../assets/coffee.svg";
 import teaIcon from "../../assets/tea.svg";
 import cokeIcon from "../../assets/coke.svg";
-import energydrinkIcon from "../../assets/energy-drink.svg"
+import energydrinkIcon from "../../assets/energy-drink.svg";
 import Button from '../../components/Button';
-
+import Modal from '../../components/Modal';
 
 const Detail = () => {
   const [drinkList, setDrinkList] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [drinkToDelete, setDrinkToDelete] = useState(null);
 
   const getDrinks = async () => {
     try {
-      const response = await api.get("/"); // fetching drinks from the backend
+      const response = await api.get("/"); 
       setDrinkList(response.data.data);
     } catch (err) {
       console.error("Error fetching drinks:", err);
     }
   };
 
-
-  const deleteDrinks = async (id) =>{
-    try{
-      const response = await api.delete(`/${id}`);
+  const deleteDrinks = async (id) => {
+    try {
+      await api.delete(`/${id}`);
       setDrinkList((prevList) => prevList.filter((drink) => drink._id !== id));
+    } catch (err) {
+      console.error("Error deleting drink:", err);
     }
-    catch(err){
-      console.error("error deleting drink:", err);
+  };
+
+  const handleDeleteClick = (id) => {
+    setDrinkToDelete(id);
+    setIsModalOpen(true); 
+  };
+
+  const handleModalConfirm = () => {
+    if (drinkToDelete) {
+      deleteDrinks(drinkToDelete);
+      setIsModalOpen(false); 
+      setDrinkToDelete(null); 
     }
-  }
+  };
+
+  const handleModalCancel = () => {
+    setIsModalOpen(false); 
+    setDrinkToDelete(null); 
+  };
 
   useEffect(() => {
     getDrinks();
@@ -44,79 +62,99 @@ const Detail = () => {
 
   return (
     <main>
-    <Container>
-      <Heading>
-        <HeadingTitle>Drink Details</HeadingTitle>
-      </Heading>
+      <Container>
+        <Heading>
+          <HeadingTitle id="drink-details-title">Drink Details</HeadingTitle>
+        </Heading>
 
-      <div>
-        {Array.isArray(drinkList) && drinkList.length > 0 ? (
-          <DrinkList>
-            {drinkList.map((drink) => (
-              <DrinkItem key={drink._id}>
+        <DrinkRegion aria-labelledby="drink-details-title" aria-live="polite">
+          {Array.isArray(drinkList) && drinkList.length > 0 ? (
+            <DrinkList>
+              {drinkList.map((drink) => (
+                <DrinkItem key={drink._id}>
+                  <Icon src={categoryIcons[drink.category]} alt={drink.category} />
+                  <DrinkText>
+                    {drink.category} - {drink.name} ({drink.size}) - {drink.caffeineContent} mg
+                  </DrinkText>
+                  <Button onClick={() => handleDeleteClick(drink._id)}>Remove</Button>
+                </DrinkItem>
+              ))}
+            </DrinkList>
+          ) : (
+            <p>No drinks added yet.</p>
+          )}
+        </DrinkRegion>
+      </Container>
 
-          <Icon src={categoryIcons[drink.category]} alt={drink.category} />
-                {drink.category} - {drink.name} ({drink.size}) - {drink.caffeineContent} mg
-                <Button onClick={()=> deleteDrinks(drink._id)}>Remove</Button>
-             </DrinkItem>
-            ))}
-          </DrinkList> 
-        ) : (
-          <p>No drinks added yet.</p>
-        )}
-      </div>
-    </Container>
+      <Modal 
+        isOpen={isModalOpen} 
+        onConfirm={handleModalConfirm} 
+        onCancel={handleModalCancel} 
+        message="Are you sure you want to delete this drink?" 
+      />
     </main>
   );
 };
 
-
-
 const Container = styled.div`
   width: 100%;
-    display:flex;
-    flex-direction : column;
-    justify-content:center;
-    align-items:center;
-    margin-top:3rem;
-
+  max-width: 800px;
+  margin: 3rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Heading = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 `;
 
 const HeadingTitle = styled.h1`
-  transform: rotate(2deg);
-  padding: 0.2rem 1.2rem;
+  font-size: 2rem;
+  color: #ffffff;
+  background-color: #47261f;
+  padding: 0.6rem 1.4rem;
   border-radius: 20% 5% 20% 5%/5% 20% 25% 20%;
-  background-color:#F7F3E2;
-  color: #47261f;
-  font-size: 1.5rem;
+  transform: rotate(2deg);
+`;
+
+const DrinkRegion = styled.section`
+  width: 100%;
+  text-align: center;
 `;
 
 const DrinkList = styled.ul`
   list-style-type: none;
   padding: 0;
-  display: flex;
-  flex-direction: column; 
-  justify-content: center;
-  align-items: center;
+  margin: 0;
 `;
 
 const DrinkItem = styled.li`
-  display: flex; 
-  align-items: center; 
-  gap: 1rem; 
-  font-size: 1.2rem;
-  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  background-color: #fdfdfd;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0.8rem;
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  color: #333;
 `;
 
 const Icon = styled.img`
-  width:50px; 
-`
+  width: 40px;
+  height: 40px;
+`;
+
+const DrinkText = styled.span`
+  flex: 1;
+  text-align: left;
+`;
 
 export default Detail;

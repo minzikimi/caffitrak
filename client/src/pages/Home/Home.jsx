@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import api from '../../utils/api';
 import { motion } from 'framer-motion';
-// import coffeeBeanIcon from "../../assets/cutebean.png"; 
 import styled from 'styled-components';
 import heartIcon from "../../assets/heart.png"
 import brokenIcon from "../../assets/broken.png"
@@ -49,13 +48,20 @@ const Home = () => {
         backgroundImage={totalCaffeine > 400 ? brokenIcon : heartIcon}/>
 
       <ContentWrapper>
-        <h2>Your Daily Caffeine Intake</h2>
+        {totalCaffeine < 400 && <h2>Your Daily Caffeine Intake</h2>}
+       
         {totalCaffeine > 0 ? (
           <p>Total Caffeine: <strong>{totalCaffeine} mg</strong></p>
         ) : (
           <p>No drinks added yet. Start adding your caffeine!</p>
         )}
+        {totalCaffeine > 400 && (
+        <WarningMessage>
+          Warning: You've exceeded the daily caffeine limit! Please be cautious.
+        </WarningMessage>
+        )}
       </ContentWrapper>
+  
     </Container>
   );
 };
@@ -79,6 +85,7 @@ const Container = styled.div`
 `;
 
 const ContentWrapper = styled.div`
+  
   text-align: center;
   h2 {
     font-size: 2rem;
@@ -89,10 +96,17 @@ const ContentWrapper = styled.div`
 
   p {
     font-size: 1.6rem;
-    color: #6f6f6f;
     font-weight: 500;
-    margin-bottom: 10px;
+    margin-bottom: 2rem;
+    margin-top:2rem;
   }
+`;
+
+const WarningMessage = styled.p`
+  font-size: 1.5rem;
+  color:#d00000; 
+  font-weight: 700;
+  margin-top: 15px;
 `;
 
 export default Home;
