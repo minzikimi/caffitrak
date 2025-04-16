@@ -22,6 +22,10 @@ const Button = styled.button`
   &.box1 {
     border: solid 6px #000000;
   }
+    &:focus {
+    outline: 3px solid #ffbf47;
+    outline-offset: 2px; 
+  }
 `;
 
 export default Button;

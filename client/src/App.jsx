@@ -19,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
  body {
     padding-top: 100px; 
     margin: 0;
-    background-color:#F6E1E4;
+    background-color:#FCFBF4;
   }
 
   h1 {

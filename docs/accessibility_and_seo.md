@@ -1,4 +1,1 @@
-I clearly labeled elements in the app to make it accessible for screen readers.
-Buttons and input fields are fully operable via keyboard navigation (e.g., using Tab).
-I set appropriate web titles and meta tags to improve SEO.
-I used high-contrast colors to accommodate users with visual impairments.
+To ensure accessibility, I added ARIA labels to key elements, making the app screen reader-friendly. I implemented keyboard navigation with focus states for buttons and form fields. High-contrast colors were used to enhance readability for users with visual impairments. For SEO, I set proper meta tags and titles to improve search engine visibility.

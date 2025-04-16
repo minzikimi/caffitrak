@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Button from './Button';
 
 const Modal = ({ isOpen, onConfirm, onCancel, message }) => {
   if (!isOpen) return null; 
@@ -50,17 +51,5 @@ const ModalButtons = styled.div`
   justify-content: space-around;
 `;
 
-const Button = styled.button`
-  padding: 0.6rem 1rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  background-color: #47261f;
-  color: white;
-  &:hover {
-    background-color: #6c3e24;
-  }
-`;
 
 export default Modal;

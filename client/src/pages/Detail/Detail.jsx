@@ -72,7 +72,7 @@ const Detail = () => {
             <DrinkList>
               {drinkList.map((drink) => (
                 <DrinkItem key={drink._id}>
-                  <Icon src={categoryIcons[drink.category]} alt={drink.category} />
+                  <Icon src={categoryIcons[drink.category]} alt={`${drink.category} drink icon`} />
                   <DrinkText>
                     {drink.category} - {drink.name} ({drink.size}) - {drink.caffeineContent} mg
                   </DrinkText>

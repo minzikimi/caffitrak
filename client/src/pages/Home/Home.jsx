@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import api from '../../utils/api';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
-import heartIcon from "../../assets/heart.png"
-import brokenIcon from "../../assets/broken.png"
-
+import heartIcon from "../../assets/heart.png";
+import brokenIcon from "../../assets/broken.png";
+import warningIcon from "../../assets/warning.svg";
 
 const calculateTotalCaffeine = (drinks) => {
   return drinks.reduce((sum, drink) => sum + drink.caffeineContent, 0);
@@ -34,7 +34,8 @@ const Home = () => {
   return (
     <Container>
       {/* animated coffee bean */}
-      <AnimatedIcon
+      <CoffeeIcon
+        aria-label={totalCaffeine > 400 ? "Broken heart icon indicating caffeine intake exceeds the limit." : "Heart icon indicating caffeine intake is under the limit."}
         animate={{
           y: [0, -30, 0],
         }}
@@ -56,9 +57,22 @@ const Home = () => {
           <p>No drinks added yet. Start adding your caffeine!</p>
         )}
         {totalCaffeine > 400 && (
-        <WarningMessage>
-          Warning: You've exceeded the daily caffeine limit! Please be cautious.
-        </WarningMessage>
+          <WarningMessage>
+            <WarningIcon
+               src={warningIcon}
+               alt="Warning icon"
+               animate={{
+                 rotate: [0, 15, -15, 0],  
+               }}
+               transition={{
+                 duration: 1,  
+                 repeat: Infinity,
+                 repeatType: "loop",
+                 ease: "easeInOut",
+              }}
+            />
+            Warning: You've exceeded the daily caffeine limit!
+          </WarningMessage>
         )}
       </ContentWrapper>
   
@@ -66,7 +80,7 @@ const Home = () => {
   );
 };
 
-const AnimatedIcon = styled(motion.div)`
+const CoffeeIcon = styled(motion.div)`
   margin-top:5rem;
   display: block;
   width: 300px; 
@@ -85,7 +99,6 @@ const Container = styled.div`
 `;
 
 const ContentWrapper = styled.div`
-  
   text-align: center;
   h2 {
     font-size: 2rem;
@@ -107,6 +120,12 @@ const WarningMessage = styled.p`
   color:#d00000; 
   font-weight: 700;
   margin-top: 15px;
+`;
+
+const WarningIcon = styled(motion.img)`
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
 `;
 
 export default Home;

@@ -41,11 +41,15 @@ const Add = ({ setDrinkList }) => {
 
   return (
     <Container>
-      <Form onSubmit={handleSubmit}>
+      <Form aria-labelledby="add-drink-heading"  onSubmit={handleSubmit}>
         <Heading>Hey, what did you drink?</Heading>
 
         <Label htmlFor="category">Category</Label>
-        <Select id="category" value={selectedCategory} onChange={handleCategoryChange}>
+        <Select 
+          id="category"
+          aria-label="Select category of drink"
+          value={selectedCategory}
+          onChange={handleCategoryChange}>
           <option value="">Choose</option>
           {caffeineDatabase.map((item) => (
             <option key={item.category} value={item.category}>
@@ -57,7 +61,11 @@ const Add = ({ setDrinkList }) => {
         {selectedCategory && (
           <>
             <Label htmlFor="drink">Drink</Label>
-            <Select id="drink" value={selectedDrink} onChange={handleDrinkChange}>
+            <Select 
+              id="drink"
+              aria-label="Select drink"
+              value={selectedDrink} 
+              onChange={handleDrinkChange}>
               <option value="">Choose</option>
               {selectedCategoryData?.drinks.map((drink) => (
                 <option key={drink.name} value={drink.name}>
@@ -71,7 +79,11 @@ const Add = ({ setDrinkList }) => {
         {selectedDrink && selectedDrinkData && (
           <>
             <Label htmlFor="size">Size</Label>
-            <Select id="size" value={selectedSize} onChange={handleSizeChange}>
+            <Select 
+              id="size" 
+              aria-label="Select size of drink"
+              value={selectedSize} 
+              onChange={handleSizeChange}>
               <option value="">Choose</option>
               {Object.keys(selectedDrinkData.size).map((sizeKey) => (
                 <option key={sizeKey} value={sizeKey}>
@@ -131,8 +143,8 @@ const Select = styled.select`
   color: #333;
 
   &:focus {
-    outline: 2px solid #99753F;
-    border-color: #99753F;
+    outline: 2px solid #ffbf47;
+    border-color: #ffbf47;
   }
 `;
 

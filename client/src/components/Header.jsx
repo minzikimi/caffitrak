@@ -2,10 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Link, useMatch } from "react-router-dom";
 import { motion } from "framer-motion";  
-import homeIcon from "../assets/home.svg";
-import addIcon from "../assets/add.svg";
-import viewIcon from "../assets/view.svg";
-import aboutIcon from "../assets/about.svg";
 import roastedBeanIcon from "../assets/roasted-coffee-bean.svg";
 
 
@@ -65,7 +61,6 @@ const Header = () => {
   );
 };
 
-// background-color:#F5F5F5;
 
 const Nav = styled.nav`
   display: flex;
@@ -77,7 +72,7 @@ const Nav = styled.nav`
   
   z-index: 1000;
   transition: background-color 0.3s ease;
-  background-color:#F6E1E4;
+  background-color:#FCFBF4;
   border-bottom :1px solid white;
  
   
@@ -148,7 +143,7 @@ const Items = styled.ul`
 
 const Item = styled.li`
   position: relative;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 300;
   margin: 10px 0;
 
