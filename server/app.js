@@ -4,7 +4,11 @@ import bodyParser from "body-parser";
 import cors from "cors"; 
 import indexRouter from "./routes/index.js";
 // import rateLimit from "express-rate-limit"; 
+import "dotenv/config";
 
+
+const VITE_BACKEND_URL = process.env.VITE_BACKEND_URL;
+console.log("moungouri", process.env.VITE_BACKEND_URL);
 
 const app = express();
 
@@ -18,7 +22,7 @@ app.use(bodyParser.json());
 app.use("/api", indexRouter);
 
 // mongoDB connection
-const mongoURI = "mongodb://localhost:27017/caffeine-purse";
+const mongoURI = VITE_BACKEND_URL;
 mongoose.connect(mongoURI).then(() => {
     console.log("mongoose connected");
 }).catch((err) => {
