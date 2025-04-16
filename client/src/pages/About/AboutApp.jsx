@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import coffeeCat from "../../assets/coffeecat.gif";
+import coffeeCat from "../../assets/coffeeCat.gif";
 
 const AboutApp = () => {
   return (
