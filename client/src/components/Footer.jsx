@@ -3,46 +3,49 @@ import styled from 'styled-components';
 
 const Footer = () => {
   return (
-    <FooterWrapper>
+    <FooterWrapper role="contentinfo">
       <FooterContent>
-        <FooterText>
-          &copy; {new Date().getFullYear()} CaffiTrak. All rights reserved.
-        </FooterText>
         <FooterText>
           By Minji K.
         </FooterText>
-       
       </FooterContent>
     </FooterWrapper>
   );
 };
 
 const FooterWrapper = styled.footer`
-
-  color: #ecf0f1;
-  padding: 20px;
-  text-align: center;
+  color: #111111;
+  padding: 16px 20px;
   font-size: 1rem;
-  position: relative;
-  bottom: 0;
   width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #FCFBF4;
+  z-index: 999;
+
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+    padding: 12px 16px;
+  }
 `;
 
 const FooterContent = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-  }
+  align-items: center;
 `;
 
 const FooterText = styled.p`
-  margin: 0;
-  padding: 5px;
+  margin: 4px 0;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+
+  /* On smaller screens, adjust font size */
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+  }
 `;
 
 export default Footer;

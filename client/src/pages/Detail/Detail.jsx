@@ -106,20 +106,24 @@ const Container = styled.div`
   align-items: center;
 `;
 
-const Heading = styled.div`
+export const Heading = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
 `;
 
-const HeadingTitle = styled.h1`
+export const HeadingTitle = styled.h1`
   font-size: 2rem;
   color: #ffffff;
   background-color: #47261f;
   padding: 0.6rem 1.4rem;
   border-radius: 20% 5% 20% 5%/5% 20% 25% 20%;
   transform: rotate(2deg);
+
+  @media (max-width: 768px) {
+      font-size: 1.5rem;
+  }
 `;
 
 const DrinkRegion = styled.section`
@@ -145,7 +149,14 @@ const DrinkItem = styled.li`
   margin: 0.5rem 0;
   font-size: 1.1rem;
   color: #333;
+
+    @media (max-width: 768px) {
+      font-size: 0.9rem;
+      padding: 1rem;
+  margin:1rem;
+  }
 `;
+
 
 const Icon = styled.img`
   width: 40px;

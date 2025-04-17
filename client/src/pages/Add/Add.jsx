@@ -42,7 +42,8 @@ const Add = ({ setDrinkList }) => {
   return (
     <Container>
       <Form aria-labelledby="add-drink-heading"  onSubmit={handleSubmit}>
-        <Heading>Hey, what did you drink?</Heading>
+        <Heading id="add-drink-heading">Hey, what did you drink?</Heading>
+
 
         <Label htmlFor="category">Category</Label>
         <Select 
@@ -147,10 +148,5 @@ const Select = styled.select`
     border-color: #ffbf47;
   }
 `;
-
-// const CoffeeGif = styled.img`
-//   width: 300px;
-//   margin-top: 20px;
-// `;
 
 export default Add;

@@ -103,7 +103,7 @@ const ContentWrapper = styled.div`
   h2 {
     font-size: 2rem;
     font-weight: 600;
-    color: #47261f;
+    color:rgb(85, 85, 85);
     margin-bottom: 15px;
   }
 
@@ -112,6 +112,7 @@ const ContentWrapper = styled.div`
     font-weight: 500;
     margin-bottom: 2rem;
     margin-top:2rem;
+
   }
 `;
 

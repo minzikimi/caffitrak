@@ -22,22 +22,11 @@ const GlobalStyle = createGlobalStyle`
     background-color:#FCFBF4;
   }
 
-  h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #99753F;
-    
-  }
 
   h2 {
     margin-top: 40px;
   }
 
-  label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-  }
 
   select {
     width: 100%;

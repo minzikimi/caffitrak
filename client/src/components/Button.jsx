@@ -26,6 +26,11 @@ const Button = styled.button`
     outline: 3px solid #ffbf47;
     outline-offset: 2px; 
   }
+
+   @media (max-width: 768px) {
+     font-size:0.9rem;
+     padding:0.5rem;
+  }
 `;
 
 export default Button;

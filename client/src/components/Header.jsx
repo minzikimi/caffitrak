@@ -69,10 +69,8 @@ const Nav = styled.nav`
   width: 100%;
   top: 0;
   padding:2rem;
-  
   z-index: 1000;
   transition: background-color 0.3s ease;
-  background-color:#FCFBF4;
   border-bottom :1px solid white;
  
   
@@ -146,6 +144,7 @@ const Item = styled.li`
   font-size: 1.2rem;
   font-weight: 300;
   margin: 10px 0;
+  color: #47261f;
 
   &:hover {
     cursor: pointer;

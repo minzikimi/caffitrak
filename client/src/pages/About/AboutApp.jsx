@@ -1,11 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import coffeeCat from "../../assets/coffeeCat.gif";
+import { Heading, HeadingTitle } from '../Detail/Detail';
 
 const AboutApp = () => {
   return (
     <ArticleWrapper aria-labelledby="about-app-title">
-      <Title id="about-app-title">About This App</Title>
+      <Heading>
+        <HeadingTitle id="about-app-title">About This App</HeadingTitle>
+      </Heading>
 
       <ImageWrapper>
         <img 
@@ -19,7 +22,7 @@ const AboutApp = () => {
       <Paragraph>
         This app is primarily created for personal use, as I am a self-proclaimed <StrongText>coffee and tea enthusiast</StrongText>. I consume a considerable amount of caffeine each day, and sometimes, I find it difficult to engage in conversation before my first cup of coffee. 😅
       </Paragraph>
-      
+
       <Paragraph>
         But I recently recognized the need to <BoldText>reduce my caffeine intake</BoldText> for health reasons. It’s one of those adulting moments, right? This led me to the idea of creating an application to track my caffeine consumption. 🧐
       </Paragraph>
@@ -45,24 +48,23 @@ const AboutApp = () => {
 
 const ArticleWrapper = styled.article`
   margin: 3rem auto;
-  max-width: 800px;
+  max-width: 1200px;
   font-size: 1.1rem;
   line-height: 1.6;
   color: #333;
   padding: 1rem;
+  padding-bottom: 80px;
   border-radius: 8px;
-`;
+  
+  @media (max-width: 768px) {
+    max-width: 90%;
+    padding: 1rem;
+  }
 
-const Title = styled.h1`
-  font-size: 2rem;
-  width:40%;
-  text-align: center;
-  color: #ffffff;
-  background-color: #47261f;
-  transform: rotate(2deg);
-  padding: 0.5rem 1.2rem;
-  border-radius: 20% 5% 20% 5%/5% 20% 25% 20%;
-  margin-bottom: 2rem;
+  @media (max-width: 480px) {
+    font-size: 1rem;
+    padding-bottom: 50px;
+  }
 `;
 
 const ImageWrapper = styled.figure`
@@ -70,6 +72,12 @@ const ImageWrapper = styled.figure`
   float: left;
   margin-right: 20px;
   margin-bottom: 20px;
+  
+  @media (max-width: 768px) {
+    text-align: center;
+    float: none;
+    margin-right: 0;
+  }
 `;
 
 const Paragraph = styled.p`
@@ -78,23 +86,43 @@ const Paragraph = styled.p`
   color: #333;
   line-height: 1.7;
   margin-bottom: 1rem;
+  
+  @media (max-width: 768px) {
+    font-size: 1.05rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+  }
 `;
 
 const StrongText = styled.strong`
   font-size: 1.2rem;
   color: #1a1a1a;
+  
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+  }
 `;
 
 const BoldText = styled.span`
   font-size: 1.1rem;
   font-weight: bold;
   color: #0c0c0c;
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 const HighlightText = styled.span`
   font-size: 1.2rem;
   font-weight: bold;
-  color: #d00000; 
+  color: #d00000;
+  
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+  }
 `;
 
 export default AboutApp;
