@@ -11,7 +11,13 @@ const app = express();
 // enable CORS for all origins (basic configuration)
 app.use(cors());
 app.use(bodyParser.json());
-// use routes
+
+// route for testing the root path
+app.get("/", (req, res) => {
+    res.send("Welcome to Caffeine Tracker API");
+});
+
+// Use routes
 app.use("/api", indexRouter);
 
 // mongoDB connection
@@ -27,7 +33,7 @@ app.listen(5004, () => {
     console.log("server on 5004");
 });
 
-// // Rate limiting to prevent DoS attacks
+// Rate limiting to prevent DoS attacks
 // const limiter = rateLimit({
 //     windowMs: 15 * 60 * 1000, // 15 minutes
 //     max: 100, // Limit each IP to 100 requests per windowMs
