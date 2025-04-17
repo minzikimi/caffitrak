@@ -45,3 +45,9 @@ npm run dev
 Your frontend will now interact with the backend through the API.
 
 
+
+##A11y and SEO
+
+##Tracking
+
+##Security

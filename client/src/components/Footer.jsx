@@ -14,7 +14,6 @@ const Footer = () => {
 };
 
 const FooterWrapper = styled.footer`
-  color: #111111;
   padding: 16px 20px;
   font-size: 1rem;
   width: 100%;
@@ -26,7 +25,7 @@ const FooterWrapper = styled.footer`
 
   @media (max-width: 768px) {
     font-size: 0.8rem;
-    padding: 12px 16px;
+    padding:1rem;
   }
 `;
 
@@ -41,11 +40,6 @@ const FooterText = styled.p`
   font-weight: 500;
   letter-spacing: 0.5px;
   font-size: 0.9rem;
-
-  /* On smaller screens, adjust font size */
-  @media (max-width: 768px) {
-    font-size: 0.8rem;
-  }
 `;
 
 export default Footer;
