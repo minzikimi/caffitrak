@@ -116,7 +116,7 @@ const ContentWrapper = styled.div`
 `;
 
 const WarningMessage = styled.p`
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color:#d00000; 
   font-weight: 700;
   margin-top: 15px;
