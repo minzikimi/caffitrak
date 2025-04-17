@@ -46,8 +46,8 @@ Your frontend will now interact with the backend through the API.
 
 
 
-##A11y and SEO
+## A11y and SEO
+![Accessibility Features](./public/a11y.png)
+## Tracking
 
-##Tracking
-
-##Security
+## Security
