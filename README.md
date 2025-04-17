@@ -18,9 +18,27 @@ Welcome to **CaffiTrak** – a light-weighted app for tracking daily caffeine co
 - **Development Tools**: Vite (for fast build and HMR), ESLint (for linting)
 
 ## Getting Started
-
 Follow these steps to run the project locally:
 
 ### Step 1: Clone the repository
+git clone git@github.com:minzikimi/caffitrak-backend.git
 
-Clone the project to your local machine... coming soon..
+### Step 2: Install frontend dependencies
+npm i
+
+### Step 3: Install backend dependencies
+cd server
+npm i
+
+### Step 4:  Run the backend
+cd server
+npm run dev
+
+### Step 5: . Run the frontend
+cd ..
+npm run dev
+
+### You’re All Set!
+Your frontend will now interact with the backend through the API.
+
+
