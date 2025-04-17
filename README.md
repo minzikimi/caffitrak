@@ -21,7 +21,7 @@ Welcome to **CaffiTrak** – a light-weighted app for tracking daily caffeine co
 Follow these steps to run the project locally:
 
 ### Step 1: Clone the repository
-git clone <git@github.com:minzikimi/caffitrak-backend.git>
+git clone repo-url
 
 ### Step 2: Install frontend dependencies
 npm i
