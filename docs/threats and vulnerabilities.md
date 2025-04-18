@@ -1,7 +1,9 @@
-This project may be vulnerable to Cross-Site Scripting (XSS) and CORS misconfigurations.
-XSS risks are currently low because the application only accepts predefined input from dropdowns and selections. 
-However, in the future, if user-generated text input is added (e.g. custom drink names), proper input sanitization and output encoding will be implemented to mitigate injection attacks.
+CaffiTrak includes some core security measures, with plans to expand them in future iterations:
 
-Another potential vulnerability is the open CORS policy, which currently allows requests from any origin. This could expose the API to misuse from untrusted domains. To address this, I plan to implement a stricter CORS configuration, allowing only trusted front-end origins.
+XSS Protection XSS risks are currently low because the app only accepts predefined input (dropdowns and selectors). In future versions, if user-generated text inputs (like custom drink names) are added, we will implement: Input sanitization Output encoding To prevent injection attacks.
 
-Additionally, to protect users from accidental data deletion, on detail component a confirmation modal is implemented before any drink is removed. This small UI safeguard helps avoid unintended actions and contributes to user trust and data safety.
+🙅🏻Rate Limiting CaffiTrak uses rate limiting with the express-rate-limit package to restrict requests from a single IP to a set number within 15 minutes. Exceeding the limit results in a 403 Forbidden response, protecting the API from abuse.
+
+CORS Configuration The app currently uses an open CORS policy, which allows requests from any origin (for development convenience). In the future, we plan to restrict CORS to trusted frontend domains to prevent misuse from unknown or malicious origins.
+
+Safe Deletion with Confirmation On the frontend, a confirmation modal appears before deleting a drink, helping users avoid accidental data loss. On the backend, deletion is handled securely with proper HTTP status codes.
