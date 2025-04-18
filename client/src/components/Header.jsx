@@ -64,6 +64,7 @@ const Header = () => {
 
 const Nav = styled.nav`
   display: flex;
+   background-color:#FCFBF4;
   align-items: center;
   position: fixed;
   width: 100%;
@@ -71,9 +72,6 @@ const Nav = styled.nav`
   padding:2rem;
   z-index: 1000;
   transition: background-color 0.3s ease;
-  border-bottom :1px solid white;
- 
-  
 
   @media (max-width: 768px) {
 
@@ -84,9 +82,8 @@ const Nav = styled.nav`
 `;
 
 const Logo = styled.div`
-  font-size:2rem;
+  font-size:1.2rem;
   color: #47261f;
-  font-family: "Boldonse", system-ui;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -122,6 +119,7 @@ const Items = styled.ul`
   display: flex;
   gap: 3rem;
   padding-left:2rem;
+
  
 
   @media (max-width: 768px) {
@@ -133,18 +131,21 @@ const Items = styled.ul`
     position: absolute;
     top: 100px;
     left: 0;
-    background-color: white;
     width: 100%;
     gap:1rem;
+ background-color:#FCFBF4;
+ padding-bottom:2rem;
+ border-bottom:1px solid  #47261f;
   }
 `;
 
 const Item = styled.li`
   position: relative;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 300;
   margin: 10px 0;
   color: #47261f;
+  
 
   &:hover {
     cursor: pointer;

@@ -114,6 +114,14 @@ const ContentWrapper = styled.div`
     margin-top:2rem;
 
   }
+
+    @media (max-width: 768px) {
+   h2{
+   font-size:1.5rem;
+   }
+   p{
+   font-size:1rem;}
+  }
 `;
 
 const WarningMessage = styled.p`

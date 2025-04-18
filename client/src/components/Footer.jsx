@@ -37,7 +37,6 @@ const FooterContent = styled.div`
 
 const FooterText = styled.p`
   margin: 4px 0;
-  font-weight: 500;
   letter-spacing: 0.5px;
   font-size: 0.9rem;
 `;
