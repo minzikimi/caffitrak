@@ -59,6 +59,9 @@ Input sanitization
 Output encoding
 To prevent injection attacks.
 
+🙅🏻‍♀️ Rate Limiting
+CaffiTrak uses rate limiting with the express-rate-limit package to restrict requests from a single IP to a set number within 15 minutes. Exceeding the limit results in a 403 Forbidden response, protecting the API from abuse.
+
 🌍 CORS Configuration
 The app currently uses an open CORS policy, which allows requests from any origin (for development convenience).
 In the future, we plan to restrict CORS to trusted frontend domains to prevent misuse from unknown or malicious origins.
