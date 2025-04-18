@@ -15,22 +15,22 @@ backend deployment :https://caffitrak-backend.onrender.com
 Follow these steps to run the project locally:
 
 ### Step 1: Clone the repository
-git clone repo-url
+```git clone repo-url```
 
 ### Step 2: Install frontend dependencies
-npm i
+```npm i```
 
 ### Step 3: Install backend dependencies
-cd server
-npm i
+```cd server```
+```npm i```
 
 ### Step 4:  Run the backend
-cd server
-npm run dev
+```cd server```
+```npm run dev```
 
 ### Step 5: . Run the frontend
-cd ..
-npm run dev
+```cd ..```
+```npm run dev```
 
 ### You’re All Set!
 Your frontend will now interact with the backend through the API.
