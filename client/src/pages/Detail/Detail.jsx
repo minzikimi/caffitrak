@@ -57,7 +57,7 @@ const Detail = () => {
     "Coffee": coffeeIcon,
     "Tea": teaIcon,
     "Energy Drink": energydrinkIcon,
-    "Carbonated Drinks": cokeIcon,
+    "Carbonated Drink": cokeIcon,
   };
 
   return (
@@ -104,7 +104,6 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  paddiing-bottom:2rem;
 `;
 
 export const Heading = styled.div`
@@ -134,7 +133,7 @@ const DrinkRegion = styled.section`
 
 const DrinkList = styled.ul`
   list-style-type: none;
-  padding: 0;
+  padding-bottom: 3rem;
   margin: 0;
 `;
 

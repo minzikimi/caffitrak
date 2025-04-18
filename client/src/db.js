@@ -29,7 +29,7 @@ const caffeineDatabase = [
     ]
   },
   {
-    category: "Carbonated Drinks",
+    category: "Carbonated Drink",
     drinks: [
       { name: "Coca-Cola", size: { S: 24, M: 34, L: 46 } },
       { name: "Pepsi", size: { S: 25, M: 38, L: 50 } }
