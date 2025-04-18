@@ -2,7 +2,7 @@
 
 Welcome to **CaffiTrak**,  a light-weighted app for tracking daily caffeine consumption! Whether it's coffee, energy drinks, tea, or any other caffeinated beverage, this app helps you keep track of your daily intake and warns you when you've exceeded the recommended caffeine consumption, helping you maintain a healthy balance. (BUT I LOVE COFFEE STILL)
 
-frontend deployment :caffitrak-backend.vercel.app
+frontend deployment :https://caffitrak-backend.vercel.app
 backend deployment :https://caffitrak-backend.onrender.com
 
 Currently Working On: Combining the frontend and backend into a single deployment 
